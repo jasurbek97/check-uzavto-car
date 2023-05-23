@@ -8,7 +8,7 @@ RUN npm install --legacy-peer-deps
 
 COPY . .
 
-RUN npm start
+# RUN npm start
 
 FROM node:14-alpine AS production
 
@@ -27,4 +27,4 @@ COPY . .
 
 COPY --from=development /usr/src/app ./dist
 
-CMD ["node", "index"]
+CMD ["npm", "start"]

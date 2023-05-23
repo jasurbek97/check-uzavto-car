@@ -51,20 +51,3 @@ async function apiCheck() {
 }
 
 setInterval(apiCheck, 10000);
-
-
-
-
-fetch("http://savdo.uzavtosanoat.uz/b/ap/stock_list&models_all_post", {
-  "headers": {
-    "accept": "application/json, text/plain, */*",
-    "accept-language": "en-US,en;q=0.9,fr;q=0.8,ru;q=0.7",
-    "content-type": "application/json;charset=UTF-8",
-    "lang_code": "ru",
-    "cookie": "lang=ru; JSESSIONID=31A7BB3E0CE787A9B39D86703CDA72D4",
-    "Referer": "http://savdo.uzavtosanoat.uz/",
-    "Referrer-Policy": "strict-origin-when-cross-origin"
-  },
-  "body": "{\"filial_id\":100}",
-  "method": "POST"
-});

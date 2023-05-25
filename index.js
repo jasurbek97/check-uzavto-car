@@ -8,7 +8,7 @@ async function sendMessageToTelegram(message) {
   const telegramApiUrl = `https://api.telegram.org/bot${telegramBotToken}/sendMessage`;
     return axios.post(telegramApiUrl, 
         { 
-          chat_id: process.env.CHAT_ID,
+          chat_id: '-924696782',
           text: message,
         }, {
       headers: {
@@ -21,7 +21,8 @@ async function sendMessageToTelegram(message) {
 }
 
 async function apiCheck() {
-    const car  = process.env.CAR
+    const cars  = ['TRACKER-2', 'COBALT', 'LACETTI', 'NEXIA-3', 'SPARK'];
+    const block = [];
     console.debug('Run.........')
    return axios.post("http://savdo.uzavtosanoat.uz/b/ap/stock_list&models_all_post", { "referrer": "http://savdo.uzavtosanoat.uz/",
     "filial_id": 100
@@ -37,10 +38,14 @@ async function apiCheck() {
         const {data} = response
         if(data && Array.isArray(data)){
             for(const d of data){
+              for(const car of cars) {
                 console.log(d?.name)
-                if(d?.name.includes(car) || d.name.includes(car.toLowerCase())){
-                    sendMessageToTelegram(`${car} sale started`);
+                if(!block.includes(car) && (d?.name.includes(car) || d.name.includes(car.toLowerCase()))){
+                   sendMessageToTelegram(`${car} sale started`);
+                   block.push(car)
                 }
+              }
+  
             }
         }
       })

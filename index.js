@@ -21,7 +21,7 @@ async function sendMessageToTelegram(message) {
 }
 
 async function apiCheck() {
-    const cars  = ['TRACKER-2', 'COBALT', 'LACETTI', 'NEXIA-3', 'SPARK'];
+    const cars  = ['COBALT', 'LACETTI', 'NEXIA-3', 'SPARK'];
     const block = [];
     console.debug('Run.........')
    return axios.post("http://savdo.uzavtosanoat.uz/b/ap/stock_list&models_all_post", { "referrer": "http://savdo.uzavtosanoat.uz/",
